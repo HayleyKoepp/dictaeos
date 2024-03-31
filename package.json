@@ -1,0 +1,58 @@
+{
+  "name": "dictaeos",
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "format": "prettier --write '**/*.{js,ts,yml,json}' --ignore-path .gitignore",
+    "format:check": "prettier --check '**/*.{js,ts,yml,json}' --ignore-path .gitignore",
+    "clean": "rm -rf docs node_modules pnpm-lock.yaml packages/*/{pnpm-lock.yaml,coverage,.nyc_output,dist,node_modules,.next}",
+    "lint": "pnpm -r --if-present run lint",
+    "test": "pnpm -r --if-present run test",
+    "check": "pnpm -r --if-present run check",
+    "build": "pnpm -r --if-present run build",
+    "docs": "pnpm run build && typedoc --out docs",
+    "docs:markdown": "pnpm run build && docusaurus generate-typedoc"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.12.2",
+    "@docusaurus/core": "^2.3.1",
+    "docusaurus-plugin-typedoc": "^0.18.0",
+    "lint-staged": "^13.2.0",
+    "prettier": "2.8.3",
+    "typedoc-plugin-markdown": "^3.14.0",
+    "typescript": "5.2.2"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "depcheck": "^1.4.3",
+    "typedoc": "^0.25.2",
+    "typedoc-plugin-missing-exports": "^2.1.0"
+  },
+  "packageManager": "pnpm@7.24.3",
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "react*"
+      ]
+    }
+  },
+  "author": "LowellKrajcik",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HayleyKoepp/dictaeos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HayleyKoepp/dictaeos.git/issues"
+  },
+  "homepage": "https://github.com/HayleyKoepp/dictaeos.git"
+}
